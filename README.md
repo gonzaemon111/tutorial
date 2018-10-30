@@ -1,6 +1,11 @@
 
 ## pythonのインストール
+
 https://www.python.org/
+
+## 参考チュートリアル
+
+https://djangogirlsjapan.gitbook.io/workshop_tutorialjp/django_start_project
 
 ターミナルで確認！
 
