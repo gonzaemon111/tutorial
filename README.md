@@ -82,6 +82,9 @@ DATABASES = {
 }
 
 ...
+```
+
+
 ```iTerm
 $ python manage.py migrate
 ```
@@ -97,4 +100,53 @@ $ python manage.py migrate
 
 デフォルトのポート番号は、8000！
 `localhost:8000`でアクセス可能！
+
+### アプリケーション作成コマンド(この例 : blogアプリケーション)
+```
+(myvenv) ~/djangogirls$ python manage.py startapp blog
+```
+
+### 今のディレクトリ状況
+```
+    djangogirls
+    ├── blog
+    │   ├── __init__.py
+    │   ├── admin.py
+    │   ├── apps.py
+    │   ├── migrations
+    │   │   └── __init__.py
+    │   ├── models.py
+    │   ├── tests.py
+    │   └── views.py
+    ├── db.sqlite3
+    ├── manage.py
+    └── mysite
+        ├── __init__.py
+        ├── settings.py
+        ├── urls.py
+        └── wsgi.py
+```
+
+アプリケーションを作成したら、Djangoにをそれを伝える必要がある！
+
+それは、`mysite/settings.py`ファイルの中でやります。
+
+`INSTALLED_APPS`のなかに`blog`を入れる。
+
+`mysite/settings.py`
+
+```
+    INSTALLED_APPS = (
+        'django.contrib.admin',
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+        'blog',
+    )
+```
+
+
+
 
