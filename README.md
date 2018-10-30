@@ -1,11 +1,10 @@
+## 参考チュートリアル
+
+https://djangogirlsjapan.gitbook.io/workshop_tutorialjp/django_start_project
 
 ## pythonのインストール
 
 https://www.python.org/
-
-## 参考チュートリアル
-
-https://djangogirlsjapan.gitbook.io/workshop_tutorialjp/django_start_project
 
 ターミナルで確認！
 
@@ -152,6 +151,23 @@ $ python manage.py migrate
     )
 ```
 
+modelをつくると、今度はmigrationファイルの作成。
 
+モデルで型などを定義したのちに`python manage.py makemigrations [モデル名]`を実行すると、
 
+```
+(myvenv) ~/djangogirls$ python manage.py makemigrations blog
+Migrations for 'blog':
+  0001_initial.py:
+  - Create model Post
+```
 
+あとは、migrateを実行！(DBにmigrationファイルを読み込ませてテーブルやカラムを作成)
+
+```
+(myvenv) ~/djangogirls$ python manage.py migrate blog
+Operations to perform:
+  Apply all migrations: blog
+Running migrations:
+  Applying blog.0001_initial... OK
+```
