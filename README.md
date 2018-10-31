@@ -309,3 +309,20 @@ application = DjangoWhiteNoise(application)
 ```
 
 これで、デプロイの準備完了！
+
+### herokuにデプロイ
+
+※ heroku toolbeltはインスコされている前提！
+
+※もしCLIでherokuにログインしていな場合は、
+```
+$ heroku login
+```
+を実行！
+
+
+```
+$ heroku create [herokuアプリケーション名]
+```
+
+
