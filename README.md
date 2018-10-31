@@ -212,3 +212,23 @@ admin画面についてもっと知りたければ、
 
 https://docs.djangoproject.com/ja/1.11/ref/contrib/admin/​
 
+### デプロイ
+
+herokuにデプロイ！
+
+まず、必要なファイルたち！
+```
+1. requirements.txt (あなたのサーバーにどんなPythonパッケージがインストールされる必要があるか、Herokuに伝えるもの)
+2. Procfile  (このファイルが、どのコマンドを実行してウェブサイトをスタートするかHerokuに伝えます)
+3. runtime.txt  (Pythonのバージョンを伝えるファイル！)
+```
+
+* まず、requirements.txtにかんして
+
+`virtualenv`内で
+
+```
+$ pip install dj-database-url gunicorn whitenoise
+インストールが終わったら、
+$ pip freeze > requirements.txt
+```
