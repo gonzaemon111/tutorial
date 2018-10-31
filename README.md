@@ -207,3 +207,8 @@ $ python manage.py createsuperuser
 ```
 
 で作成！
+
+admin画面についてもっと知りたければ、
+
+https://docs.djangoproject.com/ja/1.11/ref/contrib/admin/​
+
