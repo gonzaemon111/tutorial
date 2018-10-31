@@ -256,8 +256,7 @@ web: gunicorn mysite.wsgi
 heroku用のpython の versionを指定するファイル！
 
 
-ここからは、既存のファイルの変更！
-
+* mysite/local_settings.py
 `mysite/local_settings.py`が存在しないので、新しく作成し、以下を記述。
 
 
@@ -274,4 +273,29 @@ DATABASES = {
 
 DEBUG = True
 ```
+
+#### ここからは、既存のファイルの変更！
+
+`mysite/settings.py`に新しく以下を追記！
+
+```
+import dj_database_url
+DATABASES['default'] = dj_database_url.config()
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+ALLOWED_HOSTS = ['*']
+
+STATIC_ROOT = 'staticfiles'
+
+DEBUG = False
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+```
+
+このファイルは、Herokuに必要な構成だけでなく、mysite/local_settings.pyファイルがある時にはローカルの設定にも重要な役割となります。
+
 
