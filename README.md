@@ -276,7 +276,7 @@ DEBUG = True
 
 #### ここからは、既存のファイルの変更！
 
-`mysite/settings.py`に新しく以下を追記！
+* `mysite/settings.py`に新しく以下を追記！
 
 ```
 import dj_database_url
@@ -299,3 +299,13 @@ except ImportError:
 このファイルは、Herokuに必要な構成だけでなく、mysite/local_settings.pyファイルがある時にはローカルの設定にも重要な役割となります。
 
 
+* `mysite/wsgi.py`に以下を追加！
+
+静的ファイルの配信用のコードである、以下を追加！
+
+```
+from whitenoise.django import DjangoWhiteNoise
+application = DjangoWhiteNoise(application)
+```
+
+これで、デプロイの準備完了！
