@@ -298,17 +298,30 @@ except ImportError:
 
 このファイルは、Herokuに必要な構成だけでなく、mysite/local_settings.pyファイルがある時にはローカルの設定にも重要な役割となります。
 
+この部分は廃止！ -> どうやらversion の問題らしい、、、
 
-* `mysite/wsgi.py`に以下を追加！
+        * `mysite/wsgi.py`に以下を追加！
 
-静的ファイルの配信用のコードである、以下を追加！
+        静的ファイルの配信用のコードである、以下を追加！
+
+        ```
+        from whitenoise.django import DjangoWhiteNoise
+        application = DjangoWhiteNoise(application)
+        ```
+
+        これで、デプロイの準備完了！
+
+
+その代わり、`mysite/settings.py`に以下を追加！(https://qiita.com/ymhr1121/items/344c4eb300ab9972d0c2)
 
 ```
-from whitenoise.django import DjangoWhiteNoise
-application = DjangoWhiteNoise(application)
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', # この行を追加
+    'django.contrib.sessions.middleware.SessionMiddleware',
+# 以下略
+]
 ```
-
-これで、デプロイの準備完了！
 
 ### herokuにデプロイ
 
