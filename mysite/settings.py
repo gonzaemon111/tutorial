@@ -26,8 +26,6 @@ SECRET_KEY = 'ihh4uwnh3!56ec7rrj(ehx56cqk63vyxlp$xf2y=5nlc5!r)dh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-DATABASES['default'] = dj_database_url.config()
-
 ALLOWED_HOSTS = ['*']
 
 
@@ -51,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -87,6 +86,7 @@ DATABASES = {
     }
 }
 
+DATABASES['default'] = dj_database_url.config()
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
