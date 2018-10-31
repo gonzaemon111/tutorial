@@ -326,3 +326,19 @@ $ heroku create [herokuアプリケーション名]
 ```
 
 
+```
+$ heroku run python manage.py migrate  -> migrateを実行!
+$ heroku run python manage.py createsuperuser
+```
+
+デプロイ用では、
+
+```
+{
+    username : adminuser
+    email : admin@hoge.com
+    password : hogehoge
+}
+```
+
+で作成した！
