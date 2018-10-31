@@ -232,3 +232,12 @@ $ pip install dj-database-url gunicorn whitenoise
 インストールが終わったら、
 $ pip freeze > requirements.txt
 ```
+
+> 補足: pip freeze は、あなたのvirtualenvにインストール済みの全てのPythonライブラリを一覧にして出力します。そのpip freezeした出力先を、>の後に示しファイルに保存します。> requirements.txt を含まずに pip freeze だけで実行してみて、何が起こるか試してみるとよいでしょう。
+
+そして、`requirements.txt`の最後の行に
+
+```
+psycopg2==2.5.4
+```
+を追加しましょう。
