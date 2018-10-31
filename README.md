@@ -372,3 +372,34 @@ $ heroku run python manage.py createsuperuser
 といっても、DjangoのURL名前解決では 'http://127.0.0.1:8000/' は除いてパターンマッチするので、このパターンは 'http://127.0.0.1:8000/' 自体を意味します。
 
 つまり、'http://127.0.0.1:8000/' というURLにアクセスしてきたユーザに対してviews.post_listを返すように指定していることになります。
+
+
+### コンソール
+
+```
+$ python manage.py shell
+```
+
+
+```
+>>> Post.objects.all()
+
+Traceback (most recent call last): File "", line 1, in  NameError: name 'Post' is not defined
+```
+エラーになる！
+
+これは、
+
+```
+>>> from blog.models import Post
+```
+
+```
+>>> Post.objects.all()
+
+<QuerySet [<Post: ロボットビジョンレポート>, <Post: j:opn>, <Post: ねsrb：っっktb>]>
+```
+
+
+
+
