@@ -251,8 +251,27 @@ web: gunicorn mysite.wsgi
 このコマンドを実行することでデプロイすることを意味しています!
 
 
+* runtime.txt
+
+heroku用のpython の versionを指定するファイル！
 
 
+ここからは、既存のファイルの変更！
+
+`mysite/local_settings.py`が存在しないので、新しく作成し、以下を記述。
 
 
+```
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+DEBUG = True
+```
 
