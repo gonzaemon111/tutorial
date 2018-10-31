@@ -171,3 +171,39 @@ Operations to perform:
 Running migrations:
   Applying blog.0001_initial... OK
 ```
+
+```
+見て分かる通り、前回定義したPostモデルをimportしています。モデルをadminページで見れるようにするには、モデルをadmin.site.register(Post)で登録する必要があります。
+```
+
+```
+$ python manage.py runserver
+```
+で確認！
+
+http://127.0.0.1:8000/admin/ にアクセスすると、
+
+
+
+となる！
+
+これは、管理画面に入るためのユーザー(superuserという)のサインインを施している！
+
+これに登録するには、以下のコマンドを打つ必要がある。
+
+
+```
+$ python manage.py createsuperuser
+```
+
+今回は
+
+```
+{
+    username : admin
+    email : admin@admin.com
+    password : hogehoge
+}
+```
+
+で作成！
